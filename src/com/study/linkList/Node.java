@@ -3,29 +3,28 @@ package com.study.linkList;
 /**
  * @author wuwei
  * @title: Node
- * @projectName DataStuct
+ * @projectName DataStruct
  * @description: TODO
  * @date 2019-11-3014:34
  */
-public final class Node {
-    private int size;
-    private String data;
+public final class Node<T> {
+    private T data;
     private Node next;
 
-    public int getSize() {
-        return size;
+    public Node(T data) {
+        this.data = data;
     }
 
-    public Node setSize(int size) {
-        this.size = size;
-        return this;
+    public Node(T data, Node next) {
+        this.data = data;
+        this.next = next;
     }
 
-    public String getData() {
+    public T getData() {
         return data;
     }
 
-    public Node setData(String data) {
+    public Node setData(T data) {
         this.data = data;
         return this;
     }
@@ -42,8 +41,7 @@ public final class Node {
     @Override
     public String toString() {
         return "Node{" +
-                "size=" + size +
-                ", data='" + data + '\'' +
+                " data='" + data + '\'' +
                 ", next=" + next +
                 '}';
     }
