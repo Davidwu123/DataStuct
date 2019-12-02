@@ -13,6 +13,30 @@ import com.study.common.Log;
 public class TestMain {
     private static final String TAG = TestMain.class.getSimpleName();
     public static void main(String[] args) {
+        leadingSingleList();
+    }
+
+
+    private static void leadingSingleList() {
+        LeadingSingleList leadingSingleList = new LeadingSingleList();
+        leadingSingleList.insertFromHead("1");
+        leadingSingleList.insertFromHead("2");
+        leadingSingleList.insertFromHead("3");
+        leadingSingleList.insertFromHead("4");
+        leadingSingleList.insertFromHead("1");
+        leadingSingleList.insertFromHead("2");
+        leadingSingleList.insertFromHead("3");
+        leadingSingleList.insertFromHead("8");
+        leadingSingleList.insertBefore(null, "before-null-Node");
+        leadingSingleList.insertBefore(leadingSingleList.queryNode("1"), "insert-before-1");
+        leadingSingleList.delete("8");
+        leadingSingleList.printAllNode();
+    }
+
+    /**
+     * 不带头的单链表
+     */
+    private static void singleListDemo() {
         SingleList<String> singleList = new SingleList<>();
         Log.d(TAG, "delete....");
         singleList.delete("tail1");
