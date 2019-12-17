@@ -12,11 +12,12 @@ import java.util.Date;
  */
 public class Log {
 
-    public static void d(String tag, String value) {
+    public static void d(String tag, Object value) {
         System.out.print(getCurrentTime());
         System.out.print(" Thread-name: " + Thread.currentThread().getName() + "\t" + tag + ":\t");
-        System.out.println(value);
+        System.out.println(value.toString());
     }
+
 
     private static String getCurrentTime() {
         Date d = new Date();
