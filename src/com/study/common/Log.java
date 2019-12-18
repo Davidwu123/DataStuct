@@ -18,6 +18,10 @@ public class Log {
         System.out.println(value.toString());
     }
 
+    public static void d(Class clazz, Object value) {
+        d(clazz.getSimpleName(), value);
+    }
+
 
     private static String getCurrentTime() {
         Date d = new Date();

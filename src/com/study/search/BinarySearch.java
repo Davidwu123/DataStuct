@@ -1,12 +1,10 @@
 package com.study.search;
 
-import com.study.common.Log;
-
 /**
  * @author wuwei
  * @title: BinarySerach
  * @projectName DataStuct
- * @description: TODO
+ * @description: 针对不含有重复数据的有序数组进行二分查找
  * @date 2019-12-17 19:46
  */
 public class BinarySearch extends BaseSearch{
