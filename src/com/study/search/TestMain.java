@@ -20,5 +20,9 @@ public class TestMain {
         Log.d(TAG, "优化后的二分非递归实现, 第一次出现大于等于，index is " +  new BinarySearch2().noRecSearchFirstBiggerId(1010, orderedArr, 0, orderedArr.length - 1));
         Log.d(TAG, "优化后的二分递归实现, 第一次出现大于等于，index is " +  new BinarySearch2().recSearchFirstBiggerId(1010, orderedArr, 0, orderedArr.length - 1));
         Log.d(TAG, "优化后的二分递归实现, 最后一个小于等于，index is " +  new BinarySearch2().recSearchLastSmallerId(30, orderedArr, 0, orderedArr.length - 1));
+        int[] loopSortedArr1 = new int[] {4,6,14,17,20,1,3};
+        int[] loopSortedArr2 = new int[] {10,9,8,5,20,15,13,11};
+        Log.d(TAG, "循环有序数组二分非递归实现，递增index is " + new BinarySearch2().noRecSearchIdFromLoopSortedArr(1, loopSortedArr1, 0, loopSortedArr1.length - 1));
+        Log.d(TAG, "循环有序数组二分非递归实现，递减index is " + new BinarySearch2().noRecSearchIdFromLoopSortedArr(11, loopSortedArr2, 0, loopSortedArr2.length - 1));
     }
 }

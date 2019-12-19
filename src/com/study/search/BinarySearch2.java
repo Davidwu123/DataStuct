@@ -149,5 +149,51 @@ public class BinarySearch2 extends BaseSearch{
     }
 
 
+    /**
+     * 循环有序数组[4,6,14,17,20,1,3]([10,9,8,5,20,15,13])
+     * 特性：原始数组[1,3,4,6,14,17,20] -> 调换位置的数组[4,6,14,17,20,1,3]
+     * 还是二分查找的姿势,选择mid，如果arr[mid] > arr[low]
+     * ****1. 如果为递增数组，则可以确定的是mid左侧的[low, mid -1]一定为有序数组，右侧的不一定，可能是循环有序/有序数组
+     * ****2. 如果为递减数组，则可以确定的是mid右侧[mid + 1, high]一定为有序数组，左侧不一定
+     * 判断是递增还是递减：
+     * 如果arr[0] < arr[n-1]表示递减数组；反之为递增数组
+     */
+    int noRecSearchIdFromLoopSortedArr(int val, int[] arr, int low, int high) {
+            while (low <= high) {
+                int mid = low + ((high - low) >> 1);
+                if (arr[mid] == val) return mid;
+                if (arr[0] > arr[arr.length - 1]) {//表示递增数组
+                    if (arr[mid] > arr[low]) {//mid左侧的[low, mid -1]一定为有序数组  20, 1, 3
+                        if (arr[mid] > val && arr[low] <= val) {//，同时判断val小于arr[mid]
+                            high = mid - 1;
+                        } else {
+                            low = mid + 1;
+                        }
+                    } else {//mid右侧的[mid + 1, high]一定为有序数组
+                        if (arr[mid] < val && arr[high] >= val) {//arr[high] >= val必须要有等于，等于可以到下一次二分来解决，否则走到else里面，方向就反了
+                            low = mid + 1;
+                        } else {
+                            high = mid - 1;
+                        }
+                    }
+                } else {//表示递减数组([10,9,8,5,20,15,13,11])
+                    if (arr[mid] < arr[low]) {//左侧为有序
+                        if (arr[mid] < val && arr[low] >= val) {
+                            high = mid - 1;
+                        } else {
+                            low = mid + 1;
+                        }
+                    } else {//右侧为有序
+                        if (arr[mid] > val && arr[high] <= val) {
+                            low = mid + 1;
+                        } else {
+                            high = mid - 1;
+                        }
+                    }
+                }
+            }
+        return -1;
+    }
+
 
 }
