@@ -23,8 +23,14 @@ public class TestMain {
         binarySearchTree.recInsertTreeNode(rootNode, 8);
         binarySearchTree.recInsertTreeNode(rootNode, 12);
         binarySearchTree.recMidPrintTree(rootNode);
-        Log.d(TAG, "rec find node  " + binarySearchTree.recFindNode(rootNode, 4).toString());
-        Log.d(TAG, "no rec find node  " + binarySearchTree.noRecFindNode(rootNode, 4).toString());
+//        Log.d(TAG, "rec find node  " + binarySearchTree.recFindNode(rootNode, 4).toString());
+        Log.d(TAG, "++++++++++++++++++");
+        Log.d(TAG, "++++++++++++++++++");
+        Log.d(TAG, "++++++++++++++++++");
+        Log.d(TAG, "++++++++++++++++++");
+        binarySearchTree.deleteTreeNode(rootNode, 10);
+//        Log.d(TAG, "no rec find node  " + binarySearchTree.noRecFindNode(rootNode, 4).toString());
+        binarySearchTree.recMidPrintTree(rootNode);
 
     }
 }
