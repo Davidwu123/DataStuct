@@ -1,6 +1,7 @@
 package com.study.heap;
 
 import com.study.common.Log;
+import com.study.common.Utils;
 
 import java.util.Arrays;
 
@@ -18,9 +19,8 @@ public class Heap {
 
     public Heap(int capability) {
         this.mCapability = capability;
-        this.mArray = new int[capability];
+        this.mArray = new int[capability + 1];//真实存储容量
     }
-
 
     /**
      * 插入元素
@@ -41,15 +41,9 @@ public class Heap {
         //新增元素后，自下而上堆化：最后一个元素和父节点比较，大于父节点交换位置，循环操作
         int idx = count;
         while (idx / 2 > 0 && array[idx] > array[idx / 2]) {
-            swap(array, idx, idx / 2);
+            Utils.swap(array, idx, idx / 2);
             idx = idx / 2;
         }
-    }
-
-    private void swap(int[] array, int idxA, int idxB) {
-        int temp = array[idxA];
-        array[idxA] = array[idxB];
-        array[idxB] = temp;
     }
 
     /**
@@ -67,7 +61,7 @@ public class Heap {
         mArray[1] = mArray[mCount];
         mArray[mCount--] = 0;//最后的元素要置位
 //        heapifyUp2Down1(mArray, mCount, 1);
-        heapifyUp2Down2(mArray, mCount, 1);
+        Utils.heapifyUp2Down(mArray, mCount, 1);
         return true;
     }
 
@@ -75,7 +69,7 @@ public class Heap {
         int idx = start;
         while (idx * 2 <= count && idx * 2 + 1 <= mCount && mArray[idx] < max(mArray, idx * 2, idx * 2 + 1)) {
             int maxIdx = array[idx * 2] > mArray[idx * 2 + 1] ? idx * 2 : idx * 2 + 1;
-            swap(mArray, idx, maxIdx);
+            Utils.swap(mArray, idx, maxIdx);
             idx = maxIdx;
         }
     }
@@ -89,17 +83,17 @@ public class Heap {
     }
 
 
-    private void heapifyUp2Down2(int[] array, int count, int start) {
+    /*private void heapifyUp2Down2(int[] array, int count, int start) {
         int idx = start;
         int maxIdx = idx;
         while (true) {
             if (2 * idx <= count && array[idx] < array[2 * idx]) maxIdx = 2 * idx;
             if (2 * idx + 1 <= count && array[maxIdx] < array[2 * idx + 1]) maxIdx = 2 * idx + 1;
             if (maxIdx == idx) break;//若相等说明本节点都大于左右子节点，无需继续比较了
-            swap(array, idx, maxIdx);
+            Utils.swap(array, idx, maxIdx);
             idx = maxIdx;
         }
-    }
+    }*/
 
 
     public String toString() {

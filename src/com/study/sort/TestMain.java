@@ -16,13 +16,14 @@ public class TestMain {
     public static final String TAG = TestMain.class.getSimpleName();
 
     public static void main(String[] arg) {
-        int[] array = new int[] {4, 6, 5, 1, 8, 2, 7, 4, 6, 1, 3, 2};
-        Log.d(TAG, "raw sort: " + Arrays.toString(array));
+        int[] array = new int[] {0, 4, 6, 5, 1, 8, 2, 7, 4, 6, 1, 3, 2};
+        Log.d(TAG, "raw data: " + Arrays.toString(array));
         //答案[1, 1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8]
 //        Log.d(TAG, "select sort: " + Arrays.toString(new SelectionSort().sort(array, array.length)));
 //        Log.d(TAG, "bubble sort: " + Arrays.toString(new BubbleSort().sort(array, array.length)));
 //        Log.d(TAG, "insertion sort: " + Arrays.toString(new InsertionSort().sort(array, array.length)));
 //        Log.d(TAG, "merge sort: " + Arrays.toString(new MergeSort().sort(array, array.length)));
-        Log.d(TAG, "quick sort: " + Arrays.toString(new QuickSort().sort(array, array.length)));
+//        Log.d(TAG, "quick sort: " + Arrays.toString(new QuickSort().sort(array, array.length)));
+        Log.d(TAG, "heap sort: " + Arrays.toString(new HeapSort().sort(array, array.length)));
     }
 }
