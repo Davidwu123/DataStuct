@@ -49,7 +49,7 @@ public class MergeSort extends BaseSort {
         while (i <= mid) {//必须加==否则最后一个值不会赋值到temp里面
             temp[k++] = arr[i++];
         }
-        for (i = 0; i <= to - from; i++) {
+        for (i = 0; i <= to - from; i++) {//合并起点idx:from,结束to
             arr[from + i] = temp[i];
         }
     }

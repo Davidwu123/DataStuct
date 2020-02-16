@@ -52,6 +52,7 @@ public class QuickSort extends BaseSort {
             }
 //            Log.d(TAG, "temp" + Arrays.toString(arr));
         }
+        //keyItem一轮操作完后，keyItem左边的会比其值小，右边的会比其值大，所以又可以左右部分做递归
         //退出的条件为i=j;将keyItem的值放到arr[i]
         arr[to] = arr[i];//交换a[i]和keyItem的值
         arr[i] = keyItem;
